@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Selector</title>
+</head>
+
+<body onload="actualiza()">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="alert alert-primary text-center" role="alert">
+                <h2>PROPIEDADES OBJETO JAVASCRIPT</h2>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+
+                <h2 class="alert alert-warning text-center">SELECTOR</h2>
+                <div class="form-group">
+                    <label> ANCHO DEL CUADRO</label>
+                    <input type="range" class="form-control" id="ancho" value="50">
+                </div><br>
+                <div class="form-group">
+                    <label> Alto DEL CUADRO</label>
+                    <input type="range" class="form-control" id="alto" value="50">
+                </div> <br>
+                <div class="form-group">
+                    <label> COLOR DE FONDO</label>
+                    <input type="color" class="form-control" id="color" value="#ffff">
+                </div><br>
+                <div class="form-group">
+                    <label> SOMBRA</label>
+                    <select class="form-select" id="sombra">
+                        <option value="10px 10px 10px grey">PONER SOMBRA</option>
+                        <option selected value="0px 0px 0px grey">SIN SOMBRA</option>
+                    </select>
+                </div><br>
+                <div class="form-group">
+                    <label> CONTENIDO</label>
+                    <textarea id="contenido" rows="6" style="resize: none;" class="form-control"></textarea>
+                </div> <br>
+                <button type="button" onclick="actualiza()" class="btn btn-primary btn-lg">ACTUALIZAR</button>
+                <button type="button" onclick="location.reload()" class="btn btn-warning btn-lg">RESETEAR</button><br>
+                <br>
+
+            </div>
+            <div class="col">
+
+                <div id="cuadro" style="margin: auto; align-content: center;">
+
+                    <h4 id="texto" style="font-size: 1.2em; text-align: center; padding-top: 15px;"></h4>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function actualiza() {
+            document.getElementById('cuadro').style.width = document.getElementById('ancho').value + "%"
+            document.getElementById('cuadro').style.height = document.getElementById('alto').value + "%"
+            document.getElementById('cuadro').style.backgroundColor = document.getElementById('color').value
+            document.getElementById('cuadro').style.webkitBoxShadow = document.getElementById('sombra').value
+            document.getElementById('texto').innerText = document.getElementById('contenido').value
+
+        };
+
+    </script>
+</body>
+
+</html>

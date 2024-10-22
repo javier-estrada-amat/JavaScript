@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Arrays</title>
+</head>
+<body>
+    
+    <form>
+        <label>ELEMENTOS A COMPRAR</label><br>
+        <input type="text" id="elemento" name="elemento"><br>
+        <button type="button" onclick="agregarElementos()">AGREGAR</button><br>
+    </form>
+    <h3>LISTA COMPRA</h3><br>
+    <ul id="listado">
+        
+    </ul>
+
+    <script>
+
+        let listaCompra = []; //Array de almacenamiento de elementos
+
+        function agregarElementos(){
+            let nuevoElemento = document.getElementById('elemento').value;
+            listaCompra.push(nuevoElemento);
+            document.getElementById('elemento').value = "";
+            console.log(listaCompra)
+            actualizarLista();
+        };
+
+        function actualizarLista(){
+          let lista = document.getElementById('listado');
+          lista.innerHTML = "";
+          
+          for (let n = 0; n < listaCompra.length; n++){
+
+            let li = document.createElement("li");
+            li.textContent = listaCompra[n];
+            lista.appendChild(li);
+
+          };
+
+        };
+
+
+    </script>
+</body>
+</html>
