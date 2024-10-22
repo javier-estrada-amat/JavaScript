@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript</title>
 </head>
-<body>
+
+<body onload="console.log('PAGINA CARGADA CORRECTAMENTE!!')">
+
+    <p id="parrafo" onclick="sacartexto()">TEXTO INICIAL</p><br><br>
+
+    <h3>SUMA DE NUMEROS</h3>
+    <input type="number" id="num1"><br>
+    <input type="number" id="num2">
+    <button onclick="sumar()">SUMAR</button>
+    <p id="resultado"></p>
+    <br><br>
+    <h1 id="vedad">Verificar edad</h1>
+    <input type="number" id="edad">
+    <button onclick="verificar()">Verificación</button>
+    <p id="salida"></p>
     
+    
+    
+    
+    
+    <script>
+        //comentario
+        let texto = "hola";
+        let numero = 2;
+        const iva = 0.21;
+        console.log(texto);
+
+        function verificar(){
+            let edades = parseInt(document.getElementById("edad").value)
+            if (edades<18) {
+                document.getElementById("salida").innerHTML = "ERES MENOR DE EDAD";
+                document.getElementById("salida").style.color="red";
+            }else{
+                document.getElementById("salida").innerHTML = "ERES MAYOR DE EDAD";
+                document.getElementById("salida").style.color="green";
+            }
+
+        }
+
+        function sacartexto() {
+            document.getElementById("parrafo").innerHTML = "ESTO LO PONE JAVASCRIPT";
+        };
+
+        function sumar() {
+            let a = parseInt(document.getElementById("num1").value);
+            let b = parseInt(document.getElementById("num2").value);
+            //console.log(a+b);
+            let r = a + b;
+            document.getElementById("resultado").innerHTML = "El Resultado es: " + r;
+        }
+
+    </script>
+
+
+
 </body>
+
 </html>
