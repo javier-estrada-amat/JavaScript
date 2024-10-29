@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript2</title>
+    <style>
+        body {
+            background-color: gray;
+            font-size: 30px;
+        }
+
+        td , table{
+            border: 2px solid black;
+            border-spacing: 0;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <p id="salida"><br></p><br>
+     
+    <p id="sal2"></p>
+    <button onclick="mostrarEmpleados()">Mostrar Empleados</button> -->
+
+    <p id="contador"></p>
+    <button id="incre" onclick="sum()">Sumar</button>
+    <button id="decre" onclick="restar()">Restar</button>
+
+
+    <script>
+
+
+        let cont = 0;
+        
+        function sum(){
+            cont++;
+            document.getElementById("contador").innerHTML = "Contador " + cont;
+        }
+
+        function restar(){
+            cont--;
+            document.getElementById("contador").innerHTML = "Contador " + cont;
+        }
+
+        // function anadirContador(){
+        //     return function() {
+        //         cont++;
+        //         document.getElementById("contador").innerHTML = "Contador " + cont;
+        //     };
+        // };
+
+        // function restarContador(){
+        //     return function() {
+        //         cont--;
+        //         document.getElementById("contador").innerHTML = "Contador " + cont;
+        //     };
+        // };
+
+        let incrementar = anadirContador();
+       // let restar = restarContador();
+
+
+        // let persona = {
+        //     nombre: "Pedro",
+        //     telefono: "756753",
+        //     cp: "04317",
+        //     edad: 30
+        // };
+
+        // let empleados = [
+        //     {nombre: "Luis", puesto: "Administrativo", salario: 20000},
+        //     {nombre: "Ana", puesto: "Gerente", salario: 35000},
+        //     {nombre: "Lucia", puesto: "Vendedora", salario: 15000}
+        // ]
+
+
+        // // document.getElementById("salida").innerHTML = empleados[0].nombre;
+        // // document.getElementById("sal2").innerHTML = empleados[0].salario + empleados[1].salario + empleados[2].salario;
+
+        // function mostrarEmpleados(){
+        //     document.getElementById("salida").innerHTML = "<table id='salida2'></table>";
+        //    for (let i = 0; i < empleados.length; i++) {
+        //     document.getElementById("salida2").innerHTML += "<tr><td>" + empleados[i].nombre + "</td><td>" + empleados[i].puesto + " </td><td>" + empleados[i].salario + "</td></tr>"
+            
+        //    };
+
+        // };
+
+        
+
+
+        
+
+        // document.getElementById("salida").innerHTML = persona.nombre.toUpperCase().split(); 
+        // document.getElementById("sal2").innerHTML = persona.edad 
+
+        // function arrays(){
+        //     let frutas = ["Peras","Limones","Plátanos"];
+        //     document.getElementById("salida").innerHTML = "Lista: " + frutas.join(", ");
+        //     document.getElementById("sal2").innerHTML = "Elemento del array: " + frutas[1];
+        //     frutas.push("Melón");
+
+        // };
+
+
+        // console.log(frutas);
+        // frutas.pop();
+        // console.log(frutas);
+
+    </script>
+
+</body>
+</html>
