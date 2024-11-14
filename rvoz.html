@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconocimiento voz</title>
+</head>
+<body>
+
+
+    <h1>RECONOCIMIENTO VOZ JAVASCRIPT</h1>
+    <button id="INICIAR">INICIAR</button>
+    <button id="PARAR">DETENER</button>
+    <div id="MENSAJE"></div>
+    <div id="salida"></div>
+
+    <script>
+
+        const INICIAR = document.getElementById("INICIAR");
+        const PARAR = document.getElementById("PARAR");
+        const MENSAJEDIV = document.getElementById("MENSAJE");
+
+        // Verificar navegador compatible con la API
+
+        if ('webkitSpeechRecognition' in window){
+
+            const recognition = new webkitSpeechRecognition();
+            recognition.continuous = true; // Reconocimiento continuo
+            recognition.interimResults= true; // Mostrar resultados provisionales
+
+            recognition.onstart = function(){
+                MENSAJEDIV.textContent= "Escuchando!!"
+            }
+
+            recognition.onresult = function(event){
+                let MENSAJEFINAL = "";
+                for (let i = event.resultIndex; i < event.results.length; ++i){
+
+                if (event.results[i].isFinal){
+                    MENSAJEFINAL += event.results[i][0].transcript;
+                } else {
+                    MENSAJEFINAL += event.results[i][0].transcript + ' ';
+                };
+            };
+            //COSAS
+            MENSAJEDIV.textContent = MENSAJEFINAL;
+
+            if (MENSAJEFINAL=="alerta"){
+                alert("ESTE MENSAJE ES UNA ALERTA LANZADA POR VOZ")
+            }
+
+            if (MENSAJEFINAL== "muestra"){
+                const contenedor = document.getElementById('salida');
+                const cuadrosalida = document.createElement('H1');
+                cuadrosalida.innerHTML = "Yani te quiero <3";
+                cuadrosalida.style.backgroundColor = "yellow";
+                cuadrosalida.style.width= "450px";
+                cuadrosalida.style.height= "450px";
+                cuadrosalida.style.margin= "auto";
+                cuadrosalida.style.alignContent= "center";
+                cuadrosalida.style.textAlign="center"
+                cuadrosalida.style.color="white"
+                contenedor.appendChild(cuadrosalida);
+            }
+        
+        };
+
+
+        recognition.onerror = function(event){
+            MENSAJEDIV.textContent = "Error: "+ event.error;
+        };
+
+        INICIAR.onclick = function(){
+            recognition.start();
+        }
+
+        PARAR.onclick = function(){
+            recognition.stop();
+            MENSAJEDIV.textContent = "Reconocmiento finalizado"
+        }
+
+
+        } else {
+            MENSAJEDIV.textContent = "EL NAVEGADOR NO ES COMPATIBLE"
+
+        }
+
+
+
+    </script>
+
+    
+</body>
+</html>

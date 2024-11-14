@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Tienda Flores</title>
+
+    <style>
+        body {
+            /* Esto no lo he hecho yo, lo he buscado en google 
+            https://css-pattern.com/
+            */
+            --s: 115px;
+            /* control the size*/
+            --c1: #eeff00;
+            --c2: #585e5f;
+
+            --_g: 80%, var(--c1) 25.4%, #0000 26%;
+            background:
+                radial-gradient(at 80% var(--_g)),
+                radial-gradient(at 20% var(--_g)),
+                conic-gradient(from -45deg at 50% 41%, var(--c1) 90deg, var(--c2) 0) calc(var(--s)/2) 0;
+            background-size: var(--s) var(--s);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container gap-3 ">
+
+        <div class="row">
+            <div class="col">
+
+                <div class="alert alert-warning text-center color font-weight-bold" role="alert"
+                    style="margin-top: 30px;">
+                    <h2>Floristeria Yanira</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row"></div>
+
+        <div class="row">
+            <div class="col-8">
+
+                <!-- Primera fila -->
+                <div class="row gap-2 " style="margin-bottom: 10px;">
+
+                    <div class="card" style="width: 18rem; height: auto;">
+                        <img src="https://aquaplant.es/wp-content/uploads/2021/03/1222115.jpg"
+                            class="card-img-top img-fluid" style="max-height: 310px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" id="producto1nombre" value="Rosa Roja">Rosas Rojas</h5>
+                            <p class="card-text" id="producto1precio" value="10">Precio: 10€</p>
+
+
+                            <button type="button" class="btn btn-primary" onclick="añadirProducto(1)">Añadir</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://e7.pngegg.com/pngimages/876/555/png-clipart-yellow-rose-yellow-rose-yellow-rose-cdr-leaf-thumbnail.png"
+                            class="card-img-top" style="max-height: 310px;" alt="...">
+                        <div class="card-body" >
+                            <h5 class="card-title" id="producto2nombre" value="rosa amarilla">Rosas Amarilla</h5>
+                            <p class="card-text" id="producto2precio" value="10">Precio: 10€</p>
+
+
+                            <button type="button" class="btn btn-primary"  onclick="añadirProducto(2)">Añadir</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://img.freepik.com/fotos-premium/rosa-negra-sobre-fondo-blanco_750054-3307.jpg?w=360"
+                            style="max-height: 310px;" class="card-img-top" alt="...">
+                        <div class="card-body" >
+                            <h5 class="card-title" id="producto3nombre"  value="rosa negra">Rosas Negra</h5>
+                            <p class="card-text"  id="producto3precio" value="10">Precio: 10€</p>
+
+
+                            <button type="button" class="btn btn-primary" onclick="añadirProducto(3)">Añadir</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Segunda Fila -->
+                <div class="row gap-2" style="margin-bottom: 30px;">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://static.wixstatic.com/media/4c6c11_3fac6557e1a04dd3a82880916fc5956e~mv2.jpg/v1/fill/w_480,h_720,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/4c6c11_3fac6557e1a04dd3a82880916fc5956e~mv2.jpg"
+                            style="max-height: 310px;" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" id="producto4nombre" value="rosa violeta">Rosas Violetas</h5>
+                            <p class="card-text" id="producto4precio" value="10">Precio: 10€</p>
+
+
+                            <button type="button" class="btn btn-primary" onclick="añadirProducto(4)">Añadir</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://img.freepik.com/fotos-premium/rosa-rosa-cielo-fondo_737761-2718.jpg?w=360"
+                            style="max-height: 310px;" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" id="producto5nombre" value="rosa rosa">Rosas rosa</h5>
+                            <p class="card-text"  id="producto5precio" value="10">Precio: 10€</p>
+
+
+                            <button type="button" class="btn btn-primary" onclick="añadirProducto(5)">Añadir</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://img.freepik.com/vector-premium/ilustracion-flor-rosa-blanca_528213-574.jpg"
+                            style="max-height: 310px;" class="card-img-top" alt="...">
+                        <div class="card-body" >
+                            <h5 class="card-title" id="producto6nombre" value="rosa blanca">Rosas Blanca</h5>
+                            <p class="card-text"  id="producto6precio" value="10">Precio: 10€</p>
+
+
+                            <button type="button" class="btn btn-primary" onclick="añadirProducto(6)">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+            <!-- CARRITO COMPRA -->
+
+
+            <div class="col-4 gap-3">
+                <div class="row gap-3">
+                    <div class="alert alert-success text-center color font-weight-bold" role="alert"
+                        style="color: black; background-color: rgb(143, 226, 143); margin-left: 10px;">
+                        <h2>Carrito</h2>
+                    </div>
+                </div>
+
+                <!-- Lista compra -->
+                <div class="col" id="listado" style="background-color: beige;">
+
+                    
+
+                </div>
+
+                <div class="col" style="background-color: rgb(238, 238, 238);">
+                    <p id="totalPedido"></p>
+                </div>
+
+                <div class="col">
+
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success" type="button" onclick="comprar()">Comprar</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <script>
+
+
+
+        //Array Para los objetos personas
+        let listaProductos = [];
+
+        function añadirProducto(rosaId) {
+            //Recoger datos del producto
+            const nombre = document.getElementById("producto" + rosaId + "nombre").getAttributeNode("value").value;
+            const precio = document.getElementById("producto" + rosaId + "precio").getAttributeNode("value").value;
+            const cantidad = 1;
+            console.log(nombre);
+          
+
+            //Insertar el objeto persona en el Array listaProductos
+            const findRosa = listaProductos.find(producto => producto.id === rosaId)
+            if (findRosa) {
+                findRosa.cantidad++;
+            } else {
+                listaProductos.push({
+                    id: rosaId,
+                    nombre: nombre,
+                    precio: precio,
+                    cantidad: cantidad
+                })
+            }
+
+            mostrarRosas();
+
+        };
+
+        function borrarProducto(id) {
+            const findRosa = listaProductos.findIndex(producto => producto.id === id)
+            if (findRosa !== -1) {
+                listaProductos[findRosa].cantidad--;
+                if (listaProductos[findRosa].cantidad <= 0)
+                    listaProductos.splice(findRosa, 1)
+            }
+            mostrarRosas()
+        }
+
+        function mostrarRosas() {
+
+            const contenedor = document.getElementById("listado"); //Limpiar lo que tenga anteriormente
+
+            contenedor.innerHTML = "";
+
+            listaProductos.forEach((dato) => {
+                const divmuestra = document.createElement("div")
+                divmuestra.innerHTML = `
+        <p>Nombre: ${dato.nombre}</p>
+        <p>Precio: ${dato.precio}</p>
+        <p>Cantidad: ${dato.cantidad}</p>
+        <button class="btn btn-danger" onclick="borrarProducto(${dato.id})" type="button">Eliminar Producto</button> <br><br>
+
+        `;
+                contenedor.appendChild(divmuestra)
+            })
+
+            const totalHtml = document.getElementById("totalPedido")
+
+            const total = listaProductos.reduce((acc, producto) => {
+                return acc + (producto.precio * producto.cantidad);
+            }, 0)
+
+            totalHtml.innerHTML = 'Total pedido: ' + total +"€"
+            
+
+
+        }
+
+        function comprar(){
+
+
+            const totalPrecio = listaProductos.reduce((acc, producto) => {
+                return acc + (producto.precio * producto.cantidad);
+            }, 0)
+
+            const total = listaProductos.reduce((acc, producto) => {
+                return acc + producto.cantidad;
+            }, 0)
+
+            console.log(total)
+
+            alert("Va a comprar " + total + " productos, por el precio de: " + totalPrecio+"€")
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

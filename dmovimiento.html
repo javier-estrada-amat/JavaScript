@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIMIENTO</title>
+</head>
+<body>
+
+
+    <h1 style="text-align: center;">DETECCIÒN DE MOVIMIENTO</h1>
+    <video id="video" width="700" height="500" autoplay></video>
+    <canvas id="canvas" width="700" height="500">
+
+
+
+    </canvas>
+
+    <div id="estado"></div>
+
+
+
+    <script>
+
+        const video = document.getElementById("video");
+        const canvas = document.getElementById("canvas");
+        const estado = document.getElementById("estado");
+        const ctx = canvas.getContext('2d');
+        const deteccion = document.getElementById("estado")
+        let anteriorFrame = null;
+
+        // Activar la camara --> Con una promesa --> Peticion asincrona a un objeto server etc ...
+        // Conectar con la camara
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            video.srcObject = stream;
+        })
+        .catch(function(error) {
+            console.error('Error al acceder a la cámara:', error); 
+        });
+        
+            //Detección de movimiento
+
+            function detectarMovimiento(){
+                ctx.drawImage(video,0,0,canvas.width,canvas.height);
+                const frameActual = ctx.getImageData(0,0,canvas.width,canvas.height)
+
+
+                if(anteriorFrame){
+                    let diferencia = 0;
+                    for (let i=0;i < frameActual.data.length; i += 3){
+                        diferencia += Math.abs(frameActual.data[i] - anteriorFrame.data[i])
+                        diferencia += Math.abs(frameActual.data[i + 1] - anteriorFrame.data[i + 1])
+                        diferencia += Math.abs(frameActual.data[i + 2] - anteriorFrame.data[i + 2])
+                    }
+
+                    if(diferencia > 1000000){
+                        deteccion.innerHTML= "<h1>MOVIMIENTO DETECTADO</h1>";
+                    } else {
+                        deteccion.innerHTML="";
+                    }
+                }
+
+
+                anteriorFrame = frameActual;
+                requestAnimationFrame(detectarMovimiento);
+
+            }
+
+            video.addEventListener('play', function(){
+                detectarMovimiento();
+            })
+
+    </script>
+
+    
+</body>
+</html>
