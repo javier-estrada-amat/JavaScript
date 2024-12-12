@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de Personas</title>
+  <style>
+    /* Esto es para centrar la tabla y que se vean las filas y columnas */
+    table {
+      width: 50%;
+      margin: 50px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="tabla-container"></div>
+
+  <script>
+    const personas = [
+      { nombre: "Ana", edad: 32, ciudad: "Madrid" },
+      { nombre: "Juan", edad: 25, ciudad: "Barcelona" },
+      { nombre: "María", edad: 40, ciudad: "Valencia" }
+    ];
+
+    // Creo la tabla
+    const table = document.createElement("table");
+
+    // Creamos la cabezera
+    const thead = document.createElement("thead");
+    const tr = document.createElement("tr");
+    const headers = ["NOMBRE", "EDAD", "CIUDAD"];
+    
+    headers.forEach(header => {
+      const th = document.createElement("th");
+      th.textContent = header;
+      tr.appendChild(th);
+    });
+
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    // Aquí creamos las filas de las tablas
+    const tbody = document.createElement("tbody");
+    
+    personas.forEach(persona => {
+      const tr = document.createElement("tr");
+      Object.values(persona).forEach(value => {
+        const td = document.createElement("td");
+        td.textContent = value;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+
+    // Aquí insertamos la tabla en el contenedor
+    document.getElementById("tabla-container").appendChild(table);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive</title>
+  <!-- Importar Bootstrap desde el CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* He añadido algunos estilos para que quede mejor */
+    .card {
+      margin-bottom: 20px;
+    }
+    .card-body {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <!-- La Columna 1 -> Ocupa 4 columnas en pantallas grandes, 6 en medianas, y 12 en pantallas pequeñas -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Columna 1</h5>
+            <p class="card-text">Contenido para la primera columna.</p>
+          </div>
+        </div>
+      </div>
+
+      <!--La Columna 2 -> Ocupa 4 columnas en pantallas grandes, 6 en medianas, y 12 en pantallas pequeñas -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Columna 2</h5>
+            <p class="card-text">Contenido para la segunda columna.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- La Columna 3 -> Ocupa 4 columnas en pantallas grandes, 12 en pantallas medianas y pequeñas -->
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Columna 3</h5>
+            <p class="card-text">Contenido para la tercera columna.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>

@@ -61,6 +61,8 @@
                         <div class="card-body">
                             <h5 class="card-title" id="producto1nombre" value="Rosa Roja">Rosas Rojas</h5>
                             <p class="card-text" id="producto1precio" value="10">Precio: 10€</p>
+                            <label  style="width: 80px;">Cantidad:</label>
+                            <input type="number" id="cantidad1" name="cantidad" min="0" max="20" class="form-control">
 
 
                             <button type="button" class="btn btn-primary" onclick="añadirProducto(1)">Añadir</button>
@@ -72,6 +74,8 @@
                         <div class="card-body" >
                             <h5 class="card-title" id="producto2nombre" value="rosa amarilla">Rosas Amarilla</h5>
                             <p class="card-text" id="producto2precio" value="10">Precio: 10€</p>
+                            <label  style="width: 80px;">Cantidad:</label>
+                            <input type="number" id="cantidad2" name="cantidad" min="0" max="20" class="form-control">
 
 
                             <button type="button" class="btn btn-primary"  onclick="añadirProducto(2)">Añadir</button>
@@ -83,6 +87,8 @@
                         <div class="card-body" >
                             <h5 class="card-title" id="producto3nombre"  value="rosa negra">Rosas Negra</h5>
                             <p class="card-text"  id="producto3precio" value="10">Precio: 10€</p>
+                            <label  style="width: 80px;">Cantidad:</label>
+                            <input type="number" id="cantidad3" name="cantidad" min="0" max="20" class="form-control">
 
 
                             <button type="button" class="btn btn-primary" onclick="añadirProducto(3)">Añadir</button>
@@ -99,6 +105,8 @@
                         <div class="card-body">
                             <h5 class="card-title" id="producto4nombre" value="rosa violeta">Rosas Violetas</h5>
                             <p class="card-text" id="producto4precio" value="10">Precio: 10€</p>
+                            <label  style="width: 80px;">Cantidad:</label>
+                            <input type="number" id="cantidad4" name="cantidad" min="0" max="20" class="form-control">
 
 
                             <button type="button" class="btn btn-primary" onclick="añadirProducto(4)">Añadir</button>
@@ -110,6 +118,8 @@
                         <div class="card-body">
                             <h5 class="card-title" id="producto5nombre" value="rosa rosa">Rosas rosa</h5>
                             <p class="card-text"  id="producto5precio" value="10">Precio: 10€</p>
+                            <label  style="width: 80px;">Cantidad:</label>
+                            <input type="number" id="cantidad5" name="cantidad" min="0" max="20" class="form-control">
 
 
                             <button type="button" class="btn btn-primary" onclick="añadirProducto(5)">Añadir</button>
@@ -121,6 +131,8 @@
                         <div class="card-body" >
                             <h5 class="card-title" id="producto6nombre" value="rosa blanca">Rosas Blanca</h5>
                             <p class="card-text"  id="producto6precio" value="10">Precio: 10€</p>
+                            <label  style="width: 80px;">Cantidad:</label>
+                            <input type="number" id="cantidad6" name="cantidad" min="0" max="20" class="form-control">
 
 
                             <button type="button" class="btn btn-primary" onclick="añadirProducto(6)">Añadir</button>
@@ -192,7 +204,7 @@
             //Recoger datos del producto
             const nombre = document.getElementById("producto" + rosaId + "nombre").getAttributeNode("value").value;
             const precio = document.getElementById("producto" + rosaId + "precio").getAttributeNode("value").value;
-            const cantidad = 1;
+            const cantidad = document.getElementById("cantidad" + rosaId).value;
             console.log(nombre);
           
 
@@ -248,10 +260,9 @@
             }, 0)
 
             totalHtml.innerHTML = 'Total pedido: ' + total +"€"
-            
-
-
         }
+
+        
 
         function comprar(){
 
